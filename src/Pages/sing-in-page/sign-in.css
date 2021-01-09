@@ -1,0 +1,25 @@
+.sign-in-page{
+    display:flex;
+    justify-content: space-between;
+    margin: 30px auto;
+}
+
+.sign-flex{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+}
+
+.image{
+    height: 100%;
+    width: 100%;
+}
+/* .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  } */
