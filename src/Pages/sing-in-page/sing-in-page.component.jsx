@@ -1,5 +1,5 @@
 import React from 'react'
-import FeynurLogo  from '../../Feyneur1.png'
+import FeynurFront  from '../../Images/FeyneurFrontt.png'
 import './sign-in.css'
 import SignInForm from '../../components/sign-in-form/sign-in-form.component'
 
@@ -9,9 +9,9 @@ const SignIn = ()=>{
              <div className="sign-flex"style={{ marginTop: "100px"}}> 
                 <SignInForm /> 
             </div>
-            <div className="sign-flex">
+            <div className="sign-flex-image image-fit">
                 <div className="centered">
-                <img src={FeynurLogo} alt="logo" className="image"/>
+                <img src={FeynurFront} alt="logo" className="image"/>
                 </div>
               
             </div>

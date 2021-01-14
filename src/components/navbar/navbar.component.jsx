@@ -6,7 +6,7 @@ import './navbar.css'
 const NavBar = () =>{
 
     return (
-        <Navbar bg="dark" expand="lg" variant="dark">
+        <Navbar bg="dark" expand="lg" variant="dark"> 
         <Navbar.Brand href="#home">
             <img
             src={SimpleFeynur}
