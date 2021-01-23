@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2229806f-354a-44ae-8f3d-ce0cd7d25f6e/deploy-status)](https://app.netlify.com/sites/feyneur-visual/deploys)
 
 ## Available Scripts
 
