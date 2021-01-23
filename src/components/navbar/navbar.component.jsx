@@ -8,11 +8,9 @@ const NavBar = () =>{
     return (
         <Navbar bg="dark" expand="lg" variant="dark"> 
         <Navbar.Brand href="#home">
-            <img
-            src={SimpleFeynur}
-            width="100"
-            height="100"
-            alt="Feyneur logo"/>
+            <object type="image/svg+xml" data={SimpleFeynur} width="100" height="100">
+                Your browser does not support SVG.
+            </object>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
