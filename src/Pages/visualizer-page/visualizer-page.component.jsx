@@ -7,8 +7,8 @@ const Visualizer = ()=>{
         <div>
             <PDFViewer
             document={{
-                //url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
-                url: 'https://drive.google.com/file/d/1gU9BgKbZuW7qy2wyqt3FtPITrYGg0_TI/view?usp=sharing'
+                url: 'https://arxiv.org/pdf/quant-ph/0410100.pdf',
+                //url: 'https://drive.google.com/file/d/1gU9BgKbZuW7qy2wyqt3FtPITrYGg0_TI/view?usp=sharing'
             }}
         />
         </div>

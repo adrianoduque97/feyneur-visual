@@ -1,5 +1,5 @@
 import './App.css';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import SingIn from './Pages/sing-in-page/sing-in-page.component'
 import Visualizer from './Pages/visualizer-page/visualizer-page.component'
 import NavBar from './components/navbar/navbar.component'
