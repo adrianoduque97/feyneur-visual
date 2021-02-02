@@ -1,18 +1,40 @@
-import React from 'react'
-import {Form, Button, Card} from 'react-bootstrap'
+import React, {useState} from 'react'
+import { Form, Button, Card } from 'react-bootstrap'
 import { useHistory } from "react-router-dom";
+import {auth, signInWithGoogle} from '../../firebase/firebase.utils'
 
 
-const SignInForm = () =>{
+const SignInForm = () => {
 
+    const [userCredentials, setCredentials] = useState({email: '' , password: ''})
+    const{email, password}= userCredentials
     const history = useHistory();
 
-    const routeChange = () =>{ 
-      let path = `visualizer`; 
-      history.push(path);
+    const routeChange = () => {
+        let path = `visualizer`;
+        history.push(path);
     }
 
-    return(
+    const handleSubmit = async event => {
+        event.preventDefault()
+        console.log(userCredentials)
+        try{
+            await auth.signInWithEmailAndPassword(email,password)
+            // this.setState({ email: '', password: '' }
+        }catch(e){
+            console.log(e)
+        }
+
+        
+    }
+
+    const handleChange = event => {
+        const { value, name } = event.target
+        console.log(event.target)
+        setCredentials({...userCredentials, [name]: value })
+    }
+
+    return (
 
         <Card style={{ width: '18rem' }}>
             <Card.Body>
@@ -21,24 +43,36 @@ const SignInForm = () =>{
                     Si tiene problemas contactarse directamente con feyneur@gmail.com
     				</Card.Text>
 
-                <Form className="form-cont">
+                <Form className="form-cont" onSubmit={handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control type="email" 
+                        placeholder="Enter email"
+                        name ="email"  
+                        value= {email}
+                        required
+                        onChange={handleChange}/>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Password"
+                        name="password"
+                         value={password} 
+                         required
+                         onChange={handleChange}/>
                     </Form.Group>
-                    <Button variant="primary" type="submit" onClick={routeChange}>
+                    <Button variant="primary" type="submit">
                         SIGN IN
-            </Button>
+                    </Button>
+                    <Button variant="primary"  onClick={signInWithGoogle}>
+                        SIGN IN GOOGLE
+                    </Button>
                 </Form>
             </Card.Body>
         </Card>
-        
-        
+
+
     )
 }
 
