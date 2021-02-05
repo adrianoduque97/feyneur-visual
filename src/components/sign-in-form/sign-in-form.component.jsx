@@ -17,7 +17,6 @@ const SignInForm = () => {
 
     const handleSubmit = async event => {
         event.preventDefault()
-        console.log(userCredentials)
         try{
             await auth.signInWithEmailAndPassword(email,password)
             // this.setState({ email: '', password: '' }
@@ -30,7 +29,6 @@ const SignInForm = () => {
 
     const handleChange = event => {
         const { value, name } = event.target
-        console.log(event.target)
         setCredentials({...userCredentials, [name]: value })
     }
 

@@ -7,41 +7,70 @@ import NavBar from './components/navbar/navbar.component'
 import {auth, firestore, createUserProfileDocument} from './firebase/firebase.utils'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const App = ()=> {
+class App extends React.Component {
 
- const [currentUser, setCurrentUser] = useState();
+  constructor() {
+    super();
 
-  useEffect(()=>{
-    auth.onAuthStateChanged(async user =>{
+    this.state = {
+      currentUser: null
+    };
+  }
+  unsubscribeFromAuth = null;
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
 
-      if(user){
-        const userRef= await createUserProfileDocument(user)
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          });
 
-      userRef.onSnapshot(snapShot =>{
-        console.log(snapShot.data())
-        setCurrentUser({
-          id: snapShot.id,
-          ...snapShot.data()
-        })
-        console.log(currentUser)
-
-      })
+          console.log(this.state);
+        });
       }
-      
-      console.log(currentUser) 
-    })
 
-  },[])
+      this.setState({ currentUser: userAuth });
+    });
+  }
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+//  const [currentUser, setCurrentUser] = useState();
 
+  // useEffect(()=>{
+  //   auth.onAuthStateChanged(async user =>{
+
+  //     if(user){
+  //       const userRef= await createUserProfileDocument(user)
+
+  //     userRef.onSnapshot(snapShot =>{
+  //       setCurrentUser({
+  //         id: snapShot.id,
+  //         ...snapShot.data()
+  //       })
+
+  //     })
+  //     }
+  //   })
+  // },[currentUser])
+  render(){
+
+  
     return (
     <div className="App">
-      <NavBar currentUser ={currentUser}></NavBar>
+      <NavBar currentUser ={this.state.currentUser}></NavBar>
       <Switch>
-        <Route exact path ='/' component={SingIn}></Route>
+        <Route exact path ='/' component={this.state.currentUser?Visualizer: SingIn}></Route>
         <Route exact path ='/visualizer' component={Visualizer}></Route>
       </Switch>
     </div>
   );
+    }
 }
 
 const ew = async ()=>{
