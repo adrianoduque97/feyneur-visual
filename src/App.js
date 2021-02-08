@@ -30,7 +30,7 @@ class App extends React.Component {
             }
           });
 
-          console.log(this.state);
+          // console.log(this.state);
         });
       }
 
@@ -65,8 +65,8 @@ class App extends React.Component {
     <div className="App">
       <NavBar currentUser ={this.state.currentUser}></NavBar>
       <Switch>
-        <Route exact path ='/' component={this.state.currentUser?Visualizer: SingIn}></Route>
-        <Route exact path ='/visualizer' component={Visualizer}></Route>
+        <Route exact path ='/'currentUser ={this.state.currentUser} component={this.state.currentUser?Visualizer: SingIn}></Route>
+        <Route exact path ='/visualizer' currentUser ={this.state.currentUser} component={Visualizer}></Route>
       </Switch>
     </div>
   );
