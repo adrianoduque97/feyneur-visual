@@ -8,7 +8,7 @@ const SignInForm = () => {
 
     const [userCredentials, setCredentials] = useState({email: '' , password: ''})
     const{email, password}= userCredentials
-    const history = useHistory();
+    // const history = useHistory();
 
     // const routeChange = () => {
     //     let path = `visualizer`;
