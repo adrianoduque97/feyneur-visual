@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import './App.css';
 import {Switch, Route} from 'react-router-dom';
 import SingIn from './Pages/sing-in-page/sing-in-page.component'
 import Visualizer from './Pages/visualizer-page/visualizer-page.component'
 import NavBar from './components/navbar/navbar.component'
-import {auth, firestore, createUserProfileDocument} from './firebase/firebase.utils'
+import {auth, createUserProfileDocument} from './firebase/firebase.utils'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class App extends React.Component {
@@ -73,10 +73,4 @@ class App extends React.Component {
     }
 }
 
-const ew = async ()=>{
- const o =   firestore.doc('users/FkZOS70mhPSiv4hNDDEY')
- const ref = await o.get()
-
- console.log(ref, "PEPE")
-}
 export default App;

@@ -10,10 +10,10 @@ const SignInForm = () => {
     const{email, password}= userCredentials
     const history = useHistory();
 
-    const routeChange = () => {
-        let path = `visualizer`;
-        history.push(path);
-    }
+    // const routeChange = () => {
+    //     let path = `visualizer`;
+    //     history.push(path);
+    // }
 
     const handleSubmit = async event => {
         event.preventDefault()
