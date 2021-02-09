@@ -1,9 +1,10 @@
 import React from 'react'
 import {Navbar } from 'react-bootstrap'
 import SimpleFeynur from '../../simple.svg'
+import {auth} from '../../firebase/firebase.utils'
 import './navbar.css'
 
-const NavBar = () =>{
+const NavBar = ({currentUser}) =>{
 
     return (
         <Navbar bg="dark" expand="lg" variant="dark"> 
@@ -15,7 +16,15 @@ const NavBar = () =>{
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-            <Navbar.Text>Sign In</Navbar.Text>
+            <Navbar.Text>
+            {
+            currentUser?
+            <div onClick={() => auth.signOut()}>Sign Out</div>:
+            <div>Sign In</div>
+            
+            
+            }
+            </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
     )
