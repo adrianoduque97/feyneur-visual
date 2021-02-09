@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { Form, Button, Card } from 'react-bootstrap'
-import { useHistory } from "react-router-dom";
 import {auth, signInWithGoogle} from '../../firebase/firebase.utils'
 
 
