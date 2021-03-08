@@ -19,14 +19,27 @@ const Visualizer = ()=>{
                 setData({innerHtml:'<h1>No Data Available</h1>'})
             }
         }
+
+        // Get Users
+        // const getUsers= async() => {
+        //     const collectionUsers = await  firestore.collection('users').get();
+        //     collectionUsers.forEach(user =>{
+        //         console.log(user.data(), user.id)
+        //     })
+        // }
         
-        getReport()
+        getReport();
+        //getUsers();
         
     },[]);
 
     return(
         <div className="container center-container">
-            <div className="visualizer-full" dangerouslySetInnerHTML={{ __html: data.innerHtml }}></div>
+            <div className="row  justify-content-center align-items-center">
+                <div>
+                    <div className="visualizer-full" dangerouslySetInnerHTML={{ __html: data.innerHtml }}></div>
+                </div>
+            </div>
         </div>
         )
 }

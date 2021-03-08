@@ -16,13 +16,11 @@ const NavBar = ({currentUser}) =>{
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-            <Navbar.Text>
+            <Navbar.Text className="cursor-pointer">
             {
             currentUser?
             <div onClick={() => auth.signOut()}>Sign Out</div>:
-            <div>Sign In</div>
-            
-            
+            <div>Sign In</div>            
             }
             </Navbar.Text>
         </Navbar.Collapse>
