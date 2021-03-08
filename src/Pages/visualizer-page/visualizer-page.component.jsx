@@ -19,12 +19,14 @@ const Visualizer = ()=>{
                 setData({innerHtml:'<h1>No Data Available</h1>'})
             }
         }
-        const getUsers= async() => {
-            const collectionUsers = await  firestore.collection('users').get();
-            collectionUsers.forEach(user =>{
-                console.log(user.data(), user.id)
-            })
-        }
+
+        // Get Users
+        // const getUsers= async() => {
+        //     const collectionUsers = await  firestore.collection('users').get();
+        //     collectionUsers.forEach(user =>{
+        //         console.log(user.data(), user.id)
+        //     })
+        // }
         
         getReport();
         //getUsers();
