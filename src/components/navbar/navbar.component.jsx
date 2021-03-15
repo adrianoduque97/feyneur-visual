@@ -8,7 +8,7 @@ const NavBar = ({currentUser}) =>{
 
     return (
         <Navbar bg="dark" expand="lg" variant="dark"> 
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="">
             <object type="image/svg+xml" data={SimpleFeynur} width="100" height="100">
                 Your browser does not support SVG.
             </object>
